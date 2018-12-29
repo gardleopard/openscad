@@ -29,16 +29,22 @@ module motor() {
     cube([70,22,18]);
 }
 module wheel() {
-    cylinder(r=30,h=20);
+    cylinder(r=40,h=20);
 }
 module camera() {
     cube([10,10,2]);
+}
+module battery() {
+    cylinder(r=7, h=50);
 }
 module motorWheel() {
     motor();
     translate([12,11,20])
         wheel();
 }
-translate([100,100,0])rpi();
-motorWheel();
+translate([5,10,0])rotate([0,270,270])rpi();
+translate([0,-11,0])rotate([0,270,0])motorWheel();
+translate([70,11,0])rotate([180,270,0])motorWheel();
+translate([20,0,40])battery();
+translate([50,0,40])battery();
 //camera();
