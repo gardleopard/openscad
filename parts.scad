@@ -42,9 +42,23 @@ module motorWheel() {
     translate([12,11,20])
         wheel();
 }
+
+module l298nSmall() {
+    cube([24.7, 21, 7]);
+}
+module imu() {
+    cube([15,10,3]);
+}
+module piCam() {
+    cube([24,25,2.4]);
+    translate([12,12.5, 2.4])cylinder(r=4,h=5.9);
+}
 translate([5,10,0])rotate([0,270,270])rpi();
 translate([0,-11,0])rotate([0,270,0])motorWheel();
 translate([70,11,0])rotate([180,270,0])motorWheel();
 translate([20,0,40])battery();
 translate([50,0,40])battery();
+translate([5,0,10])rotate([90,0,0])l298nSmall();
+translate([45,0,10])rotate([90,0,0])imu();
+translate([25,-15,60])rotate([90,0,0])piCam();
 //camera();
