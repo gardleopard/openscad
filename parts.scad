@@ -26,11 +26,19 @@ module rpi() {
 }
 
 module motor() {
-    cube([80,20,20]);
+    cube([70,22,18]);
+}
+module wheel() {
+    cylinder(r=30,h=20);
 }
 module camera() {
     cube([10,10,2]);
 }
-rpi();
-//motor();
+module motorWheel() {
+    motor();
+    translate([12,11,20])
+        wheel();
+}
+translate([100,100,0])rpi();
+motorWheel();
 //camera();
