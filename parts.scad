@@ -57,16 +57,24 @@ module piCam() {
 module chassis() {
     cube([108.4,45,120]);
 }
+
+
 module internals() {
-translate([5,10,0])rotate([0,270,270])rpi();
-translate([0,-11,-10])rotate([0,270,0])motorWheel();
-translate([70,11,-10])rotate([180,270,0])motorWheel();
-translate([20,0,40])battery();
-translate([50,0,40])battery();
-translate([5,0,10])rotate([90,0,0])l298nSmall();
-translate([45,0,10])rotate([90,0,0])imu();
-translate([25,-8,60])rotate([90,0,0])piCam();
+    translate([5,10,0])rotate([0,270,270])rpi();
+    translate([0,-11,-10])rotate([0,270,0])motorWheel();
+    translate([70,11,-10])rotate([180,270,0])motorWheel();
+    translate([20,0,40])battery();
+    translate([50,0,40])battery();
+    translate([5,0,10])rotate([90,0,0])l298nSmall();
+    translate([45,0,10])rotate([90,0,0])imu();
+    translate([25,-8,60])rotate([90,0,0])piCam();
+
 //camera();
+}
+
+module space() {
+        translate([2,0,-5])cube([66,10,100]);
+    
 }
 module mainPart() {
     difference(){
@@ -75,5 +83,6 @@ module mainPart() {
     }
 }
 
-color("blue",0.4) translate([-19.2,-20,-12])chassis();
+color("blue",0.4) translate([-19.2,-80,-12])chassis();
+color("yellow",0.4) space();
 color("red",0.6)translate([0,0,0])internals();
